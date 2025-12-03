@@ -1,0 +1,17 @@
+<article class="card">
+  <div class="image-container">
+    <div class="overlay" *ngIf="!project.image">Vista Previa</div>
+    <img [src]="project.image || 'assets/project-placeholder.jpg'" [alt]="project.title">
+    
+    <div class="actions">
+      <a *ngIf="project.link" [href]="project.link" class="btn-view">VER DETALLE</a>
+    </div>
+  </div>
+
+  <h3 class="project-title">{{ project.title }}</h3>
+  
+  <div class="tags">
+    <span *ngFor="let tag of project.tags">{{ tag }}</span>
+  </div>
+
+  </article>
