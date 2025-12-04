@@ -4,8 +4,14 @@
     <img [src]="project.image || 'assets/project-placeholder.jpg'" [alt]="project.title">
     
     <div class="actions">
-      <a *ngIf="project.link" [href]="project.link" class="btn-view">VER DETALLE</a>
-    </div>
+    <a [routerLink]="['/project', project.id]" class="btn-view">
+      VER DETALLE
+    </a>
+    
+    <a *ngIf="project.link && project.link !== '#'" [href]="project.link" target="_blank" class="btn-external">
+      WEB
+    </a>
+  </div>
   </div>
 
   <h3 class="project-title">{{ project.title }}</h3>

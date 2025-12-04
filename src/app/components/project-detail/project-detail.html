@@ -1,0 +1,64 @@
+@if (project) {
+  <div class="detail-container">
+    
+    <a routerLink="/" class="back-link">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Volver al inicio
+    </a>
+
+    <header class="detail-header">
+      <h1 class="title">{{ project.title }}</h1>
+      <div class="tags">
+        @for (tag of project.tags; track tag) {
+          <span class="tag">{{ tag }}</span>
+        }
+      </div>
+    </header>
+
+    <div class="hero-image-container">
+      <div class="blur-background" [style.background-image]="'url(' + project.image + ')'"></div>
+      
+      <img [src]="project.image" [alt]="project.title" class="main-image">
+    </div>
+
+    <div class="content-grid">
+      
+      <div class="description-section">
+        <h2>Sobre el Proyecto</h2>
+        <p class="description-text">{{ project.fullDescription }}</p>
+      </div>
+
+      <div class="features-section">
+        <h3>Aspectos Técnicos</h3>
+        <ul class="feature-list">
+          @for (feature of project.features; track feature) {
+            <li>{{ feature }}</li>
+          }
+        </ul>
+      </div>
+
+    </div>
+
+    @if (project.gallery && project.gallery.length > 0) {
+      <section class="gallery-section">
+        <h2>Galería de Interfaces</h2>
+        <div class="gallery-grid">
+          @for (img of project.gallery; track img.src) {
+            <div class="gallery-item">
+              <img [src]="img.src" [alt]="img.caption">
+              <p class="caption">{{ img.caption }}</p>
+            </div>
+          }
+        </div>
+      </section>
+    }
+
+  </div>
+} @else {
+  <div class="not-found">
+    <h2>Proyecto no encontrado 😕</h2>
+    <a routerLink="/" class="btn-home">Volver al Home</a>
+  </div>
+}

@@ -1,0 +1,57 @@
+.social-bar {
+  display: flex;
+  gap: 2rem; /* Separación entre iconos */
+  align-items: center;
+}
+
+.icon-link {
+  position: relative; /* Clave para posicionar el texto flotante */
+  color: #d9d9d9;     /* Color base GRIS (como pediste) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Tamaño de los iconos SVG */
+.icon-link svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* Efecto HOVER en el icono */
+.icon-link:hover {
+  color: #4EE1A0; /* Se pone VERDE NEON */
+  transform: translateY(-3px); /* Sube un poquito */
+}
+
+/* --- EL TEXTO FLOTANTE (Label) --- */
+.label {
+  position: absolute;
+  bottom: 140%; /* Se ubica arriba del icono */
+  left: 50%;
+  transform: translateX(-50%); /* Centrado perfecto */
+  
+  /* Estilo de texto limpio (Plain Text) */
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff; /* Texto blanco puro */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  /* Invisible por defecto */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none; /* Para que el mouse no choque con el texto */
+}
+
+/* Mostrar texto al hacer hover en el icono */
+.icon-link:hover .label {
+  opacity: 1;
+  visibility: visible;
+  bottom: 160%; /* Pequeña animación hacia arriba */
+}

@@ -1,0 +1,198 @@
+.detail-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 2rem 6rem 2rem;
+  color: white;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4EE1A0;
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  transition: opacity 0.3s;
+}
+
+.back-link:hover {
+  opacity: 0.8;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 2.5rem;
+}
+
+.tag {
+  background: #242424;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #d9d9d9;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- ESTILOS PREMIUM DE IMAGEN --- */
+
+.hero-image-container {
+  position: relative; /* Necesario para contener los elementos absolutos */
+  width: 100%;
+  height: 450px;      /* Altura fija para consistencia visual */
+  border-radius: 12px;
+  overflow: hidden;   /* Corta lo que sobresalga del blur */
+  margin-bottom: 2rem;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6); /* Sombra más dramática */
+  background-color: #151515;
+  
+  /* Flexbox para asegurar centrado perfecto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blur-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* Background properties para el efecto */
+  background-size: cover;    /* Hace zoom para llenar todo el hueco */
+  background-position: center;
+  
+  /* El efecto mágico: desenfoque y oscurecimiento */
+  filter: blur(25px) brightness(0.6); 
+  
+  /* Escalar un poco (1.1) evita bordes blancos feos causados por el blur */
+  transform: scale(1.1); 
+  
+  z-index: 0; /* Al fondo */
+}
+
+.main-image {
+  position: relative;
+  z-index: 1; /* Al frente */
+  
+  width: 100%;
+  height: 100%;
+  
+  /* CONTAIN: La clave. Muestra toda la imagen sin cortar nada */
+  object-fit: contain; 
+  
+  /* Sombra suave para separar la imagen nítida del fondo borroso */
+  filter: drop-shadow(0 0 20px rgba(0,0,0,0.5)); 
+}
+
+/* --- FIN ESTILOS IMAGEN --- */
+
+/* Layout */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+  margin-bottom: 2rem;
+}
+
+.description-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #d9d9d9;
+  white-space: pre-line;
+}
+
+/* Features Box */
+.features-section {
+  background: #1F1F1F;
+  padding: 2rem;
+  border-radius: 12px;
+  height: fit-content;
+  border-left: 4px solid #4EE1A0;
+}
+
+.features-section h3 {
+  margin-top: 0;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.feature-list {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.feature-list li {
+  margin-bottom: 1rem;
+  color: #d9d9d9;
+  line-height: 1.5;
+}
+
+.feature-list li::marker {
+  color: #4EE1A0;
+}
+
+/* Galería */
+.gallery-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 1rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.gallery-item img {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.gallery-item img:hover {
+  transform: scale(1.02);
+}
+
+.caption {
+  text-align: center;
+  color: #888;
+  font-size: 0.9rem;
+  margin-top: 0.8rem;
+  font-style: italic;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .hero-image-container {
+    height: 300px; /* Un poco más bajo en móviles */
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}

@@ -1,7 +1,17 @@
 export interface Project {
+  id: string;               // Identificador para la URL
   title: string;
-  description: string;
-  image: string; // Ruta de la imagen
-  tags: string[]; // Ej: ['Angular', 'Django']
-  link?: string; // Opcional: link al detalle o repo
+  description: string;      // Descripción corta (Card)
+  fullDescription: string;  // Descripción larga (Detalle)
+  image: string;            // Imagen principal
+  tags: string[];
+  link?: string;            // Link externo (opcional)
+  
+  // Nuevos campos opcionales
+  gallery?: {
+    src: string;
+    caption: string;
+  }[];
+
+  features?: string[];
 }
